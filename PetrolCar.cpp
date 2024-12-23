@@ -9,9 +9,12 @@ PetrolCar::PetrolCar(PetrolEngine* engine)
 
 PetrolCar::~PetrolCar()         { std::cout << __FUNCTION__ << std::endl; }
 void PetrolCar::refuel()        { std::cout << __FUNCTION__ << std::endl; }
-void PetrolCar::changeEngine(PetrolEngine* pe) {
-    delete engine_;
-    engine_ = pe;
+void PetrolCar::changeEngine(Engine* pe) {
+    auto petrolEngine = dynamic_cast<PetrolEngine*>(pe);
+    if (petrolEngine) {
+        delete engine_;
+        engine_ = petrolEngine;
+    }
 }
 void PetrolCar::refill() {
     refuel();

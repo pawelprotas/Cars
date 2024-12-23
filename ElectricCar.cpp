@@ -9,9 +9,12 @@ ElectricCar::ElectricCar(ElectricEngine* engine)
 
 ElectricCar::~ElectricCar()       { std::cout << __FUNCTION__ << std::endl; }
 void ElectricCar::charge()        { std::cout << __FUNCTION__ << std::endl; }
-void ElectricCar::changeEngine(ElectricEngine* ee) {
-    delete engine_;
-    engine_ = ee;
+void ElectricCar::changeEngine(Engine* ee) {
+    auto * electricEngine = dynamic_cast<ElectricEngine*>(ee);
+    if (electricEngine) {
+        delete engine_;
+        engine_ = electricEngine;
+    }
 }
 void ElectricCar::refill() {
     charge();

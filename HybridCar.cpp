@@ -13,3 +13,8 @@ void HybridCar::refill() {
     ElectricCar::refill();
     PetrolCar::refill();
 }
+
+void HybridCar::changeEngine(Engine *engine) {
+    ElectricCar::changeEngine(engine);
+    PetrolCar::changeEngine(engine);
+}

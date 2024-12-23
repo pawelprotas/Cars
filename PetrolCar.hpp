@@ -9,7 +9,7 @@ public:
     PetrolCar(PetrolEngine* engine);
     ~PetrolCar();
 
-    void changeEngine(PetrolEngine* pe);
+    void changeEngine(Engine* pe) override;
     void refill() override;
 
 private:
